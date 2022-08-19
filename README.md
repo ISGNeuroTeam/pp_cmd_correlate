@@ -1,8 +1,10 @@
 # pp_cmd_correlate
 Postprocessing command "correlate"
 
+Compute cross-correlate two N-dimensional arrays
+
 Usage example:
-`... | correlate`
+`... | correlate first_array second_array`
 
 ## Getting started
 ###  Prerequisites
@@ -26,5 +28,5 @@ Use `pp` to test correlate command:
 pp
 Storage directory is /tmp/pp_cmd_test/storage
 Commmands directory is /tmp/pp_cmd_test/pp_cmd
-query: | otl_v1 <# makeresults count=100 #> |  correlate 
+query: | otl_v1 <# makeresults count=100 | eval signal_two = _time + 100 #> |  correlate _time signal_two
 ```

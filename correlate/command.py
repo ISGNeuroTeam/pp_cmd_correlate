@@ -1,11 +1,15 @@
 import pandas as pd
 from scipy.signal import correlate, correlation_lags
-from otlang.sdk.syntax import Keyword, Positional, OTLType
+from otlang.sdk.syntax import Positional, OTLType
 from pp_exec_env.base_command import BaseCommand, Syntax
 
 
 class CorrelateCommand(BaseCommand):
-    # define syntax of your command here
+    """
+    Compute cross-correlate two N-dimensional arrays
+
+    | correlate first_array second_array
+    """
     syntax = Syntax(
         [
             Positional("first_signal", required=True, otl_type=OTLType.TEXT),
